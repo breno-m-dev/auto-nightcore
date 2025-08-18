@@ -16,7 +16,7 @@ def download_audio_from_url(url):
     except:
         print("Connection or URL Error")
     else:
-        dowload_audio_from_object(yt)
+        dowload_audio_from_object(yt, "singlevideo")
         # print(yt.title)
         # print("Downloading...") 
         
@@ -36,7 +36,7 @@ def dowload_audio_from_object(yt, outpath):
     print("Downloading...") 
     try:
         ys = yt.streams.get_audio_only()
-        ys.download(output_path = outpath)
+        ys.download(output_path = outpathe)
     except:
         print("An download error has occured")
     else:
@@ -74,7 +74,7 @@ def download_audio_playlist(url: str):
 
 url = input("Enter the YouTube video or playlist URL: ")
 
-download_audio_playlist(url)
+download_audio_from_url(url)
 
 # def main():
 #     """
