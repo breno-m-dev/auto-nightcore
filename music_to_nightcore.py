@@ -1,5 +1,8 @@
 from pydub import AudioSegment
 
+
+
+
 def make_nightcore(input_file: str, output_file: str, speed: float = 1.25):
     """
     Creates the Nightcore version of a song
@@ -23,4 +26,4 @@ def make_nightcore(input_file: str, output_file: str, speed: float = 1.25):
     print(f"Nightcore salvo em: {output_file}")
 
 # Exemplo de uso
-make_nightcore("Devil May Cry 3 - Taste the Blood.m4a", "musica_nightcore.mp3", speed=1.3)
+#make_nightcore("Devil May Cry 3 - Taste the Blood.m4a", "musica_nightcore.mp3", speed=1.3)
