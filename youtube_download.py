@@ -43,6 +43,7 @@ def download_audio_from_url(url):
         
         folder_name = "oioi"
         #print(yt.title)
+        
         safe_title = dowload_audio_from_object(yt, folder_name)
         lonely_music.set_all(folder_name+"/"+safe_title+".m4a", safe_title)
     
@@ -76,7 +77,7 @@ def download_audio_playlist(url: str):
     try:
         playlist = Playlist(url)
         print(f"Baixando a playlist: {playlist.title}")
-
+        
         # Cria um diretório para a playlist
         playlist_folder = safe_filename(playlist.title)
         if not os.path.exists(playlist_folder):
@@ -84,18 +85,20 @@ def download_audio_playlist(url: str):
 
         print(f"Salvando os arquivos em: {os.path.abspath(playlist_folder)}")
         lista_musicas.clear()
-        for video in playlist.videos:
+        
+        for url in playlist.video_urls:
             print("-" * 40)
             # Passa o caminho da pasta da playlist para a função de download
             print(playlist_folder)
+            yt_temp = YouTube(url, on_progress_callback=on_progress)
 
-            safe_title = dowload_audio_from_object(video, playlist_folder)
+            safe_title = dowload_audio_from_object(yt_temp, playlist_folder)
             lista_musicas.append( Musica( playlist_folder+"/"+safe_title+".m4a" , safe_title))
 
-        print("\n✅ Download da playlist concluído.")
+        print("\n✅ Playlist download completed.")
 
     except Exception as e:
-        print(f"❌ Ocorreu um erro com a playlist {url}: {e}")
+        print(f"❌ Ocurred an error with the playlist {url}: {e} Insert link of playlist, not the video!")
 
 def is_playlist(url):
     try:
