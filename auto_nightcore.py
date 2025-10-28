@@ -1,5 +1,6 @@
 import youtube_download
 import music_to_nightcore
+import auto_video_editor
 import os
 
 
@@ -8,11 +9,12 @@ def main():
     Main function to orchestrate the auto-nightcore process.
     """
     
-    url = input("Enter the YouTube video or playlist URL: ")
-    if youtube_download.is_playlist(url):
-        run_through_playlist(url)
-    else:
-        run_through_single_video(url)
+    # url = input("Enter the YouTube video or playlist URL: ")
+    # if youtube_download.is_playlist(url):
+    #     run_through_playlist(url)
+    # else:
+    #     run_through_single_video(url)
+    auto_video_editor.make_video("night_core_taste_the_blood.mp3", "./images/dog.png")
 
 def run_through_playlist(url):
     youtube_download.download_audio_playlist(url)
