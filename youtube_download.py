@@ -3,6 +3,8 @@ from pytubefix import YouTube, Playlist
 from pytubefix.cli import on_progress
 from pytubefix.helpers import safe_filename
 import re
+downloaded_music = "./downloaded_music"
+
 class Musica:
     def __init__(self, path, title):
         self.path = path
@@ -25,7 +27,7 @@ def sanitize_filename(old_filename: str) -> str:
   
     new_filename = re.sub(r'[<>:"/\\|?*]', '', old_filename )
     new_filename = re.sub(r"[']", "", new_filename)
-   
+    new_filename = re.sub(r" ", "", new_filename)
     return new_filename
 
 
@@ -40,8 +42,9 @@ def download_audio_from_url(url):
     except:
         print("Connection or URL Error")
     else:
-        
-        folder_name = "oioi"
+        if not os.path.exists(downloaded_music):
+            os.makedirs(downloaded_music)
+        folder_name = downloaded_music
         #print(yt.title)
         
         safe_title = dowload_audio_from_object(yt, folder_name)
