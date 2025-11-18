@@ -4,7 +4,7 @@ import random
 
 
 #input_img is a optional parameter. It will only be used if random_image == false
-def make_video(input_audio: str, use_random_image: bool , input_img: str = None):
+def make_video(input_audio: str, use_random_image: bool , input_img: str = None , video_name: str = None):
     
    
 
@@ -22,7 +22,10 @@ def make_video(input_audio: str, use_random_image: bool , input_img: str = None)
     video = image.with_audio(audio)
     
     # Exportar vídeo
-    video.write_videofile("nightcoreExport.mp4", fps=24, codec="libx264", audio_codec="aac")
+    if video_name == None:
+        video.write_videofile("nightcoreExport.mp4", fps=24, codec="libx264", audio_codec="aac")
+    else:
+        video.write_videofile(video_name, fps=24, codec="libx264", audio_codec="aac")
 
 
 def random_image(folder: str):

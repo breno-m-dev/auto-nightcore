@@ -18,10 +18,11 @@ def main():
 
 #Does the whole process for a playlist
 def run_through_playlist(url):
-    youtube_download.download_audio_playlist(url)
-    for musica in youtube_download.lista_musicas:
-        print("PATH:"+musica.path)
-        music_to_nightcore.make_nightcore(musica.path, "NIGHTCORE-"  + musica.title +  ".mp3")
+    print("playlist function not avaiable yet")
+    # youtube_download.download_audio_playlist(url)
+    # for musica in youtube_download.lista_musicas:
+    #     print("PATH:"+musica.path)
+    #     music_to_nightcore.make_nightcore(musica.path, "NIGHTCORE"  + musica.title +  ".m4a")
 
 #Does the whole process for a single video
 def run_through_single_video(url):
@@ -29,9 +30,11 @@ def run_through_single_video(url):
         print("PATH:"+youtube_download.lonely_music.path)
         # print(youtube_download.lonely_music.title)
         # print(youtube_download.lonely_music.path)
-        music_to_nightcore.make_nightcore(youtube_download.lonely_music.path, "NIGHTCORE-"+youtube_download.lonely_music.title +".mp3")
+        music_to_nightcore.make_nightcore(youtube_download.lonely_music.path, "NIGHTCORE"+youtube_download.lonely_music.title +".m4a")
         
-        auto_video_editor.make_video("NIGHTCORE "+youtube_download.lonely_music.title +".mp3", "./images/dog.png")
+        video_name= "NIGHTCORE"+youtube_download.lonely_music.title +".mp4"#output mp4 file's name
+        
+        auto_video_editor.make_video("NIGHTCORE"+youtube_download.lonely_music.title +".m4a", True ,video_name = video_name)
 
 
 
